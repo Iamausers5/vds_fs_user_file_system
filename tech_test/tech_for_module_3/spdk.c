@@ -217,7 +217,7 @@ static void attach_cb(void *cb_ctx,
 
     int ns_count = spdk_nvme_ctrlr_get_num_ns(ctrlr);
     printf("控制器: %s  命名空间数: %d\n",
-           spdk_nvme_ctrlr_get_regs_csts(ctrlr) ? "就绪" : "未就绪",
+           spdk_nvme_ctrlr_get_regs_csts(ctrlr).bits.rdy ? "就绪" : "未就绪",
            ns_count);
 
     for (int i = 1; i <= ns_count && cctx->ns_count < MAX_NAMESPACES; i++) {
